@@ -30,7 +30,7 @@ public class SchedulesService {
 
         Schedules saveSchedules = schedulesRepository.save(schedules);
 
-        return new SchedulesResponseDto(saveSchedules.getId(), saveSchedules.getTitle(), saveSchedules.getContents());
+        return new SchedulesResponseDto(saveSchedules.getId(), saveSchedules.getTitle(), saveSchedules.getContents(),saveSchedules.getCreateAt(),schedules.getModifiedAt());
 
     }
 
@@ -47,7 +47,7 @@ public class SchedulesService {
         Schedules findSchedules = schedulesRepository.findByIdOrElseThrow(id);
         User writer = findSchedules.getUser();
 
-        return new SchedulesWithUserNameResponseDto(findSchedules.getId(),findSchedules.getTitle(), findSchedules.getContents(), writer.getUsername());
+        return new SchedulesWithUserNameResponseDto(findSchedules.getId(),findSchedules.getTitle(), findSchedules.getContents(), writer.getUsername(),writer.getCreateAt(),findSchedules.getModifiedAt());
     }
 
     //스케줄 수정
@@ -61,7 +61,7 @@ public class SchedulesService {
         // 변경된 객체를 저장
         Schedules updateSchedules = schedulesRepository.save(findSchedules);
 
-        return new SchedulesResponseDto(updateSchedules.getId(), updateSchedules.getTitle(), updateSchedules.getContents());
+        return new SchedulesResponseDto(updateSchedules.getId(), updateSchedules.getTitle(), updateSchedules.getContents(),updateSchedules.getCreateAt(),updateSchedules.getModifiedAt());
 
 
     }
