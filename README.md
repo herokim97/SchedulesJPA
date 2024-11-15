@@ -3,6 +3,8 @@
 
   
   😀 ERD
+
+  
 <img width="841" alt="image" src="https://github.com/user-attachments/assets/dd59deb8-f62c-463f-a812-9c8cf699286d">
 
 ## 1. 회원가입 및 로그인 기능 추가 개발
